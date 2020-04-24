@@ -14,3 +14,40 @@
 }
 
 %end
+
+
+%hook SBHardwareButtonInteraction
+
+-(BOOL)consumeSecondPressDown {
+    return NO;
+}
+
+-(BOOL)consumeDoublePressUp {
+    return NO;
+}
+
+-(BOOL)consumeTriplePressUp {
+    return YES;
+}
+
+%end
+
+%hook SBAccessibilityHardwareButtonInteraction
+
+-(BOOL)consumeTriplePressUp {
+    return YES;
+}
+
+%end
+
+/*%hook AXSettings //Under AccessibilityUtilities/AccessibilityUtilities-Structs. Use this for adding ops
+
+-(BOOL)assistiveTouchScannerAddedTripleClickAutomatically {
+	return TRUE;
+}
+
+-(BOOL)touchAccommodationsTripleClickConfirmed {
+	return TRUE;
+}
+
+%end*/
